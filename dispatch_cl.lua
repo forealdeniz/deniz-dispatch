@@ -101,11 +101,7 @@ RegisterNetEvent("sea-dispatch:urgent", function()
 end)
 
 RegisterNetEvent("sea-dispatch:clNotify", function(data, id)
-    if data.type == 'urgent' then
-        TriggerServerEvent('InteractSound_SV:PlayOnAll', '10-1314', 0.3)
-    else
-        PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
-    end
+PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
     SendNUIMessage({
         update = "newCall",
         code = data.code,
