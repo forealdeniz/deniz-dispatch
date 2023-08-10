@@ -13,7 +13,7 @@ function GetStreetAndZone()
     return playerStreetsLocation
 end
 
-RegisterNetEvent("sea-dispatch:createBlip", function(type, coords)
+RegisterNetEvent("deniz-dispatch:createBlip", function(type, coords)
     if type == "urgent" then
         local alpha = 150
         local Blip = AddBlipForCoord(coords)
@@ -53,11 +53,11 @@ RegisterNetEvent("sea-dispatch:createBlip", function(type, coords)
     end
 end)
 
-RegisterNetEvent("sea-dispatch:gunshot", function()
+RegisterNetEvent("deniz-dispatch:gunshot", function()
     local playerPed = PlayerPedId()
     local currentPos = GetEntityCoords(playerPed)
     local gender = IsPedMale(playerPed)
-    TriggerServerEvent('sea-dispatch:svNotify', {
+    TriggerServerEvent('deniz-dispatch:svNotify', {
         update = "newCall",
         code = '11-71',
         event = 'Ateş İhbarı',
@@ -66,14 +66,14 @@ RegisterNetEvent("sea-dispatch:gunshot", function()
         type = 'normal',
         coords = currentPos
     })
-    TriggerServerEvent("sea-dispatch:createblip", currentPos, 'gunshot', false)
+    TriggerServerEvent("deniz-dispatch:createblip", currentPos, 'gunshot', false)
 end)
 
-RegisterNetEvent("sea-dispatch:racing", function()
+RegisterNetEvent("deniz-dispatch:racing", function()
     local playerPed = PlayerPedId()
     local currentPos = GetEntityCoords(playerPed)
     local gender = IsPedMale(playerPed)
-    TriggerServerEvent('sea-dispatch:svNotify', {
+    TriggerServerEvent('deniz-dispatch:svNotify', {
         update = "newCall",
         code = '11-71',
         event = 'İllegal Yarış',
@@ -84,11 +84,11 @@ RegisterNetEvent("sea-dispatch:racing", function()
     })
 end)
 
-RegisterNetEvent("sea-dispatch:urgent", function()
+RegisterNetEvent("deniz-dispatch:urgent", function()
     local playerPed = PlayerPedId()
     local currentPos = GetEntityCoords(playerPed)
     local gender = IsPedMale(playerPed)
-    TriggerServerEvent('sea-dispatch:svNotify', {
+    TriggerServerEvent('deniz-dispatch:svNotify', {
         update = "newCall",
         code = '10-13A',
         event = 'Acil Yaralı Memur ('..QBCore.Functions.GetPlayerData().charinfo.firstname..' '..QBCore.Functions.GetPlayerData().charinfo.lastname..')',
@@ -97,10 +97,10 @@ RegisterNetEvent("sea-dispatch:urgent", function()
         type = 'urgent',
         coords = currentPos
     })
-    TriggerServerEvent("sea-dispatch:createblip", currentPos, 'urgent', true)
+    TriggerServerEvent("deniz-dispatch:createblip", currentPos, 'urgent', true)
 end)
 
-RegisterNetEvent("sea-dispatch:clNotify", function(data, id)
+RegisterNetEvent("deniz-dispatch:clNotify", function(data, id)
 PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
     SendNUIMessage({
         update = "newCall",
@@ -133,11 +133,11 @@ end)
 
 RegisterCommand('gtest', function(source, args)
     if args[1] == '1' then
-        TriggerEvent('sea-dispatch:gunshot')
+        TriggerEvent('deniz-dispatch:gunshot')
     elseif args[1] == '2' then
-        TriggerEvent('sea-dispatch:urgent')
+        TriggerEvent('deniz-dispatch:urgent')
     elseif args[1] == '3' then
-        TriggerEvent('sea-dispatch:racing')
+        TriggerEvent('deniz-dispatch:racing')
     end
 end)
 
@@ -154,15 +154,15 @@ Citizen.CreateThread(function()
                 if QBCore.Functions.GetPlayerData().job.name == "police" or QBCore.Functions.GetPlayerData().job.name == "statepolice" or QBCore.Functions.GetPlayerData().job.name == "sheriff" or QBCore.Functions.GetPlayerData().job.name == "ranger" then
                     isBusy = false
                     -- cooldown = GetGameTimer() + math.random(6000, 10000)
-                    -- TriggerEvent("sea-dispatch:gunshot")
+                    -- TriggerEvent("deniz-dispatch:gunshot")
                 else
             isBusy = true
             if IsPedCurrentWeaponSilenced(playerPed) then
                 cooldown = GetGameTimer() + math.random(25000, 30000)
-                TriggerEvent("sea-dispatch:gunshot")
+                TriggerEvent("deniz-dispatch:gunshot")
             else
                 cooldown = GetGameTimer() + math.random(6000, 10000)
-                TriggerEvent("sea-dispatch:gunshot")
+                TriggerEvent("deniz-dispatch:gunshot")
             end
             isBusy = false
         end
