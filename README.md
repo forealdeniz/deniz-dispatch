@@ -1,7 +1,5 @@
 # deniz-dispatch
 
-VORP 3.0 Inspired
+Discord: discord.gg/denizwp
 
-Discord Server: discord.gg/denizwp
-
-preview: https://streamable.com/03zkat
+Preview: https://streamable.com/03zkat
