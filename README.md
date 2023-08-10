@@ -1,7 +1,7 @@
-# sea-dispatch
+# deniz-dispatch
 
-vorp 3.0 inspired dispatch
+VORP 3.0 Inspired
 
-my discord: denizwp
+Discord Server: discord.gg/denizwp
 
 preview: https://streamable.com/03zkat
