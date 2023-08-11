@@ -1,4 +1,4 @@
-QBCore = exports['qb-core']:GetSharedObject()
+QBCore = exports['qb-core']:GetCoreObject()
 
 function isAuth(job)
     for i = 1, #Config["AuthorizedJobs"] do
