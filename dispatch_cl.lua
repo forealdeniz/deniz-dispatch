@@ -1,4 +1,4 @@
-QBCore = exports['qb-core']:GetSharedObject()
+QBCore = exports['qb-core']:GetCoreObject()
 
 function GetStreetAndZone()
     local playerPed = PlayerPedId()
