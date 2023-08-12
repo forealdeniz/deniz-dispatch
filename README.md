@@ -1,5 +1,5 @@
 # deniz-dispatch
 
-Discord: discord.gg/denizwp
+Discord: discord.gg/teamcloud
 
 Preview: https://streamable.com/03zkat
